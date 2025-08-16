@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jatin Yadav - Student Portfolio</title>
+    <!-- Use Tailwind CSS for a modern, utility-first approach to styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Apply a smooth transition to all elements for hover effects */
+        * {
+            transition: all 0.3s ease-in-out;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar styling for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937; /* Dark background */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4b5563; /* Lighter gray thumb */
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280; /* Even lighter on hover */
+        }
+
+        /* Hero text animations for a dynamic intro */
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+        .animate-slide-up {
+            animation: slideUp 1s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 leading-relaxed antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-gray-900/90 backdrop-blur-sm shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-sky-400">Jatin Yadav</a>
+            <nav>
+                <ul class="flex space-x-6 text-gray-400">
+                    <li><a href="#home" class="hover:text-sky-400">Home</a></li>
+                    <li><a href="#about" class="hover:text-sky-400">About</a></li>
+                    <li><a href="#skills" class="hover:text-sky-400">Skills</a></li>
+                    <li><a href="#achievements" class="hover:text-sky-400">Achievements</a></li>
+                    <li><a href="#hobbies" class="hover:text-sky-400">Hobbies</a></li>
+                    <li><a href="#social" class="hover:text-sky-400">Social Impact</a></li>
+                    <li><a href="#contact" class="hover:text-sky-400">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-950 opacity-90 z-0"></div>
+        <div class="relative z-10 px-6">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white animate-slide-up" style="animation-delay: 0.2s;">
+                Jatin Yadav
+            </h1>
+            <p class="text-lg md:text-2xl mt-4 max-w-2xl mx-auto text-gray-400 animate-slide-up" style="animation-delay: 0.4s;">
+                I am a second-year Computer Science Engineering student at IIIT Sonepat. My passion lies in tackling real-world problems and continuously learning new ways to solve them.
+            </p>
+            <a href="#about" class="inline-block mt-8 py-3 px-8 text-lg font-semibold text-white bg-sky-600 rounded-full shadow-lg hover:bg-sky-500 transform hover:scale-105 transition duration-300 ease-in-out animate-slide-up" style="animation-delay: 0.6s;">
+                Discover My Journey
+            </a>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-6 py-16">
+
+        <!-- About Section -->
+        <section id="about" class="py-20">
+            <h2 class="text-4xl font-bold text-center text-sky-400 mb-12">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="p-8 bg-gray-800 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        I am a dedicated student pursuing a B.Tech in Computer Science and Engineering at IIIT Sonepat. My academic journey is driven by a deep curiosity for how technology works and a desire to build solutions that can have a positive impact. I believe that every problem is a chance to learn and grow, and I find immense satisfaction in the process of breaking down challenges and building something new.
+                    </p>
+                    <p class="text-lg text-gray-300 leading-relaxed mt-4">
+                        I am actively working to strengthen my foundational knowledge and am always looking for opportunities to apply what I've learned. My goal is to transform my passion for problem-solving into a career where I can contribute to creating efficient and innovative solutions.
+                    </p>
+                </div>
+                <div class="flex justify-center items-center">
+                    <div class="bg-gradient-to-tr from-sky-400 to-indigo-600 rounded-full w-64 h-64 flex items-center justify-center text-7xl transform hover:rotate-6 transition duration-300 shadow-xl">
+                        👨‍🎓
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20">
+            <h2 class="text-4xl font-bold text-center text-sky-400 mb-12">Skills & Expertise</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
+                    <div class="text-4xl mb-4 text-sky-400">💻</div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Programming Languages</h3>
+                    <p class="text-gray-400">C, C++, Java, JavaScript</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
+                    <div class="text-4xl mb-4 text-sky-400">🌐</div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Web Development Basics</h3>
+                    <p class="text-gray-400">HTML, CSS, JavaScript</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
+                    <div class="text-4xl mb-4 text-sky-400">🧠</div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Foundational Concepts</h3>
+                    <p class="text-gray-400">Object-Oriented Programming (OOP)</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
+                    <div class="text-4xl mb-4 text-sky-400">⚙️</div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Problem Solving</h3>
+                    <p class="text-gray-400">A natural curiosity and love for learning how to solve problems.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Achievements Section -->
+        <section id="achievements" class="py-20">
+            <h2 class="text-4xl font-bold text-center text-sky-400 mb-12">Achievements & Milestones</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-sky-400 transform hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-semibold text-white mb-2">10th Grade Academic Excellence</h3>
+                    <p class="text-gray-400">Achieved a score of 97% in my 10th-grade examinations, demonstrating a strong foundation in all subjects.</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-sky-400 transform hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-semibold text-white mb-2">12th Grade Academic Excellence</h3>
+                    <p class="text-gray-400">Achieved a score of 90.8% in my 12th-grade examinations, showcasing consistent academic excellence.</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-sky-400 transform hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-semibold text-white mb-2">Pursuing a B.Tech in CSE</h3>
+                    <p class="text-gray-400">Currently in my second year of a Computer Science and Engineering degree at IIIT Sonepat, expanding my knowledge and skills in the field of technology.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hobbies Section -->
+        <section id="hobbies" class="py-20">
+            <h2 class="text-4xl font-bold text-center text-sky-400 mb-12">Hobbies & Interests</h2>
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center transform hover:scale-105 transition duration-300">
+                    <div class="text-4xl mb-2">🏐</div>
+                    <h3 class="text-xl font-semibold text-white">Volleyball</h3>
+                    <p class="text-gray-400 text-sm">Teamwork and strategy.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center transform hover:scale-105 transition duration-300">
+                    <div class="text-4xl mb-2">🏏</div>
+                    <h3 class="text-xl font-semibold text-white">Cricket</h3>
+                    <p class="text-gray-400 text-sm">Passion for the sport.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center transform hover:scale-105 transition duration-300">
+                    <div class="text-4xl mb-2">🏃‍♂️</div>
+                    <h3 class="text-xl font-semibold text-white">Running</h3>
+                    <p class="text-gray-400 text-sm">Staying active and focused.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center transform hover:scale-105 transition duration-300">
+                    <div class="text-4xl mb-2">🎬</div>
+                    <h3 class="text-xl font-semibold text-white">Watching Anime</h3>
+                    <p class="text-gray-400 text-sm">Exploring new stories.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center transform hover:scale-105 transition duration-300">
+                    <div class="text-4xl mb-2">📚</div>
+                    <h3 class="text-xl font-semibold text-white">Reading Manhwas</h3>
+                    <p class="text-gray-400 text-sm">Captivating webtoons.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Issues Section -->
+        <section id="social" class="py-20">
+            <h2 class="text-4xl font-bold text-center text-sky-400 mb-12">Social Impact & Causes I Support</h2>
+            <div class="bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-sky-400">
+                <h3 class="text-2xl font-semibold text-white mb-2">The Decline of Outdoor Play</h3>
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    I have observed with concern the shift in children's activities from outdoor play to digital screen time. In my own childhood, evenings were filled with friends gathering to play cricket and other games. Today, that scene is rarely seen, as children are often engrossed in social media, gaming, and online content. This trend affects physical health, social development, and creativity. I believe it's important to encourage activities that foster face-to-face interaction and a deeper connection with the physical world, which are crucial for a well-rounded upbringing.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <h2 class="text-4xl font-bold text-center text-sky-400 mb-12">Get In Touch</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <form class="p-8 bg-gray-800 rounded-xl shadow-lg">
+                    <div class="mb-6">
+                        <label for="name" class="block text-gray-300 mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-sky-400 focus:outline-none" placeholder="Your Name" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block text-gray-300 mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-sky-400 focus:outline-none" placeholder="Your Email" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-300 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-sky-400 focus:outline-none" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3 px-6 bg-sky-600 text-white font-semibold rounded-lg hover:bg-sky-500 transform hover:scale-105 transition duration-300">
+                        Send Message
+                    </button>
+                </form>
+                <div class="flex flex-col space-y-6">
+                    <div class="p-6 bg-gray-800 rounded-xl shadow-lg flex items-center space-x-4">
+                        <div class="text-3xl text-sky-400">📧</div>
+                        <div>
+                            <h4 class="text-xl font-semibold text-white">Email</h4>
+                            <a href="mailto:jatin4yadav776@gmail.com" class="text-gray-400 hover:underline">jatin4yadav776@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-gray-800 rounded-xl shadow-lg flex items-center space-x-4">
+                        <div class="text-3xl text-sky-400">📍</div>
+                        <div>
+                            <h4 class="text-xl font-semibold text-white">Location</h4>
+                            <p class="text-gray-400">IIIT Sonepat, India</p>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-gray-800 rounded-xl shadow-lg flex items-center space-x-4">
+                        <div class="text-3xl text-sky-400">💼</div>
+                        <div>
+                            <h4 class="text-xl font-semibold text-white">LinkedIn</h4>
+                            <a href="https://www.linkedin.com/in/jatin-yadav-46b980353?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="text-gray-400 hover:underline">View Profile</a>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-gray-800 rounded-xl shadow-lg flex items-center space-x-4">
+                        <div class="text-3xl text-sky-400">🐙</div>
+                        <div>
+                            <h4 class="text-xl font-semibold text-white">GitHub</h4>
+                            <a href="https://github.com/JATIN4YADAV" target="_blank" class="text-gray-400 hover:underline">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 py-8 text-center text-gray-500">
+        <div class="social-links mb-4 flex justify-center space-x-6 text-2xl">
+            <a href="https://github.com/JATIN4YADAV" target="_blank" class="hover:text-sky-400">🐙</a>
+            <a href="https://www.linkedin.com/in/jatin-yadav-46b980353?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="hover:text-sky-400">💼</a>
+            <!-- Optional: Add links to other social media -->
+        </div>
+        <p>&copy; 2024 Jatin Yadav. All rights reserved. Built with ❤️ and lots of ☕</p>
+    </footer>
+
+</body>
+</html>
