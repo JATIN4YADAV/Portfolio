@@ -4,256 +4,584 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jatin Yadav - Student Portfolio</title>
-    <!-- Use Tailwind CSS for a modern, utility-first approach to styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Apply a smooth transition to all elements for hover effects */
+        /*
+        * All necessary CSS is included here.
+        * This ensures the page styles correctly without needing an external network connection.
+        */
+
+        /* Basic Setup and Animations */
         * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
             transition: all 0.3s ease-in-out;
         }
-        body {
-            font-family: 'Inter', sans-serif;
+
+        html {
+            scroll-behavior: smooth;
         }
-        /* Custom scrollbar styling for a cleaner look */
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #0d1117; /* Dark background */
+            color: #c9d1d9; /* Light text */
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Custom Scrollbar for a modern look */
         ::-webkit-scrollbar {
             width: 10px;
         }
         ::-webkit-scrollbar-track {
-            background: #1f2937; /* Dark background */
+            background: #161b22;
         }
         ::-webkit-scrollbar-thumb {
-            background: #4b5563; /* Lighter gray thumb */
+            background-color: #30363d;
             border-radius: 5px;
+            border: 2px solid #0d1117;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #6b7280; /* Even lighter on hover */
+            background-color: #484f58;
         }
 
-        /* Hero text animations for a dynamic intro */
-        .animate-fade-in {
-            animation: fadeIn 1s ease-in-out forwards;
-        }
+        /* Hero section animations */
         .animate-slide-up {
-            animation: slideUp 1s ease-in-out forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            animation: slideUp 1s ease-out forwards;
+            opacity: 0;
         }
         @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
+
+        /* Container and Section Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 8rem 0;
+        }
+
+        .heading {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            color: #58a6ff;
+            margin-bottom: 3rem;
+        }
+
+        /* Header and Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(13, 17, 23, 0.95);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            padding: 1rem 0;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-item a {
+            color: #8b949e;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-item a:hover {
+            color: #58a6ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #161b22, #0d1117);
+            position: relative;
+            overflow: hidden;
+            color: #e6edf3;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #8b949e;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background-color: #58a6ff;
+            color: #0d1117;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(88, 166, 255, 0.3);
+            transform: scale(1);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            background-color: #6bb5ff;
+        }
+
+        /* Card-based Layout */
+        .card {
+            background-color: #161b22;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            border: 1px solid #30363d;
+            transform: translateY(0);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .grid-2-cols {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-3-cols {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .grid-4-cols {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        .grid-5-cols {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+
+        /* Specific Section Styles */
+        #about .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        #about .about-text {
+            line-height: 1.8;
+        }
+        
+        .profile-pic {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #58a6ff, #8b949e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            margin: 0 auto;
+        }
+
+        .skills-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #e6edf3;
+        }
+
+        .skills-card p {
+            color: #8b949e;
+        }
+        
+        .achievement-card {
+            border-left: 5px solid #58a6ff;
+        }
+
+        .hobby-card {
+            text-align: center;
+        }
+
+        .hobby-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hobby-card p {
+            font-size: 0.875rem;
+            color: #8b949e;
+        }
+
+        #social .social-card {
+            border-left: 5px solid #58a6ff;
+            padding: 2.5rem;
+            background-color: #161b22;
+            border-radius: 10px;
+        }
+
+        #social .social-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #e6edf3;
+            margin-bottom: 1rem;
+        }
+        
+        #social .social-card h3.problem-heading {
+            color: #ff7b72;
+        }
+        
+        #social .social-card h3.solution-heading {
+            color: #58a6ff;
+        }
+
+        #contact .contact-form-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #21262d;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #e6edf3;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #58a6ff;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #58a6ff;
+            color: #0d1117;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .contact-info-card {
+            background-color: #161b22;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            font-size: 2rem;
+            color: #58a6ff;
+        }
+
+        .contact-info h4 {
+            font-size: 1.25rem;
+            color: #e6edf3;
+        }
+
+        .contact-info a, .contact-info p {
+            color: #8b949e;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: #010409;
+            color: #8b949e;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .social-links a {
+            color: #8b949e;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            color: #58a6ff;
+        }
+
+        @media (max-width: 768px) {
+            .heading {
+                font-size: 2rem;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero p {
+                font-size: 1.25rem;
+            }
+            .nav-list {
+                display: none;
+            }
+            .header .container {
+                justify-content: center;
+            }
+            .about-content, .contact-form-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
     </style>
 </head>
-<body class="bg-gray-900 text-gray-100 leading-relaxed antialiased">
+<body>
 
-    <!-- Header & Navigation -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-gray-900/90 backdrop-blur-sm shadow-md">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-bold text-sky-400">Jatin Yadav</a>
+    <header class="header">
+        <div class="container">
+            <a href="#home" class="logo">Jatin Yadav</a>
             <nav>
-                <ul class="flex space-x-6 text-gray-400">
-                    <li><a href="#home" class="hover:text-sky-400">Home</a></li>
-                    <li><a href="#about" class="hover:text-sky-400">About</a></li>
-                    <li><a href="#skills" class="hover:text-sky-400">Skills</a></li>
-                    <li><a href="#achievements" class="hover:text-sky-400">Achievements</a></li>
-                    <li><a href="#hobbies" class="hover:text-sky-400">Hobbies</a></li>
-                    <li><a href="#social" class="hover:text-sky-400">Social Impact</a></li>
-                    <li><a href="#contact" class="hover:text-sky-400">Contact</a></li>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#home">Home</a></li>
+                    <li class="nav-item"><a href="#about">About</a></li>
+                    <li class="nav-item"><a href="#skills">Skills</a></li>
+                    <li class="nav-item"><a href="#achievements">Achievements</a></li>
+                    <li class="nav-item"><a href="#hobbies">Hobbies</a></li>
+                    <li class="nav-item"><a href="#social">Social Impact</a></li>
+                    <li class="nav-item"><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-950 opacity-90 z-0"></div>
-        <div class="relative z-10 px-6">
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white animate-slide-up" style="animation-delay: 0.2s;">
+    <section id="home" class="hero">
+        <div class="container">
+            <h1 class="animate-slide-up" style="animation-delay: 0.2s;">
                 Jatin Yadav
             </h1>
-            <p class="text-lg md:text-2xl mt-4 max-w-2xl mx-auto text-gray-400 animate-slide-up" style="animation-delay: 0.4s;">
+            <p class="animate-slide-up" style="animation-delay: 0.4s;">
                 I am a second-year Computer Science Engineering student at IIIT Sonepat. My passion lies in tackling real-world problems and continuously learning new ways to solve them.
             </p>
-            <a href="#about" class="inline-block mt-8 py-3 px-8 text-lg font-semibold text-white bg-sky-600 rounded-full shadow-lg hover:bg-sky-500 transform hover:scale-105 transition duration-300 ease-in-out animate-slide-up" style="animation-delay: 0.6s;">
+            <a href="#about" class="cta-button animate-slide-up" style="animation-delay: 0.6s;">
                 Discover My Journey
             </a>
         </div>
     </section>
-
-    <main class="container mx-auto px-6 py-16">
-
-        <!-- About Section -->
-        <section id="about" class="py-20">
-            <h2 class="text-4xl font-bold text-center text-sky-400 mb-12">About Me</h2>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="p-8 bg-gray-800 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
-                    <p class="text-lg text-gray-300 leading-relaxed">
-                        I am a dedicated student pursuing a B.Tech in Computer Science and Engineering at IIIT Sonepat. My academic journey is driven by a deep curiosity for how technology works and a desire to build solutions that can have a positive impact. I believe that every problem is a chance to learn and grow, and I find immense satisfaction in the process of breaking down challenges and building something new.
-                    </p>
-                    <p class="text-lg text-gray-300 leading-relaxed mt-4">
-                        I am actively working to strengthen my foundational knowledge and am always looking for opportunities to apply what I've learned. My goal is to transform my passion for problem-solving into a career where I can contribute to creating efficient and innovative solutions.
-                    </p>
-                </div>
-                <div class="flex justify-center items-center">
-                    <div class="bg-gradient-to-tr from-sky-400 to-indigo-600 rounded-full w-64 h-64 flex items-center justify-center text-7xl transform hover:rotate-6 transition duration-300 shadow-xl">
-                        👨‍🎓
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="py-20">
-            <h2 class="text-4xl font-bold text-center text-sky-400 mb-12">Skills & Expertise</h2>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
-                    <div class="text-4xl mb-4 text-sky-400">💻</div>
-                    <h3 class="text-2xl font-semibold text-white mb-2">Programming Languages</h3>
-                    <p class="text-gray-400">C, C++, Java, JavaScript</p>
-                </div>
-                <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
-                    <div class="text-4xl mb-4 text-sky-400">🌐</div>
-                    <h3 class="text-2xl font-semibold text-white mb-2">Web Development Basics</h3>
-                    <p class="text-gray-400">HTML, CSS, JavaScript</p>
-                </div>
-                <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
-                    <div class="text-4xl mb-4 text-sky-400">🧠</div>
-                    <h3 class="text-2xl font-semibold text-white mb-2">Foundational Concepts</h3>
-                    <p class="text-gray-400">Object-Oriented Programming (OOP)</p>
-                </div>
-                <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
-                    <div class="text-4xl mb-4 text-sky-400">⚙️</div>
-                    <h3 class="text-2xl font-semibold text-white mb-2">Problem Solving</h3>
-                    <p class="text-gray-400">A natural curiosity and love for learning how to solve problems.</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Achievements Section -->
-        <section id="achievements" class="py-20">
-            <h2 class="text-4xl font-bold text-center text-sky-400 mb-12">Achievements & Milestones</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-sky-400 transform hover:scale-105 transition duration-300">
-                    <h3 class="text-2xl font-semibold text-white mb-2">10th Grade Academic Excellence</h3>
-                    <p class="text-gray-400">Achieved a score of 97% in my 10th-grade examinations, demonstrating a strong foundation in all subjects.</p>
-                </div>
-                <div class="bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-sky-400 transform hover:scale-105 transition duration-300">
-                    <h3 class="text-2xl font-semibold text-white mb-2">12th Grade Academic Excellence</h3>
-                    <p class="text-gray-400">Achieved a score of 90.8% in my 12th-grade examinations, showcasing consistent academic excellence.</p>
-                </div>
-                <div class="bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-sky-400 transform hover:scale-105 transition duration-300">
-                    <h3 class="text-2xl font-semibold text-white mb-2">Pursuing a B.Tech in CSE</h3>
-                    <p class="text-gray-400">Currently in my second year of a Computer Science and Engineering degree at IIIT Sonepat, expanding my knowledge and skills in the field of technology.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Hobbies Section -->
-        <section id="hobbies" class="py-20">
-            <h2 class="text-4xl font-bold text-center text-sky-400 mb-12">Hobbies & Interests</h2>
-            <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center transform hover:scale-105 transition duration-300">
-                    <div class="text-4xl mb-2">🏐</div>
-                    <h3 class="text-xl font-semibold text-white">Volleyball</h3>
-                    <p class="text-gray-400 text-sm">Teamwork and strategy.</p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center transform hover:scale-105 transition duration-300">
-                    <div class="text-4xl mb-2">🏏</div>
-                    <h3 class="text-xl font-semibold text-white">Cricket</h3>
-                    <p class="text-gray-400 text-sm">Passion for the sport.</p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center transform hover:scale-105 transition duration-300">
-                    <div class="text-4xl mb-2">🏃‍♂️</div>
-                    <h3 class="text-xl font-semibold text-white">Running</h3>
-                    <p class="text-gray-400 text-sm">Staying active and focused.</p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center transform hover:scale-105 transition duration-300">
-                    <div class="text-4xl mb-2">🎬</div>
-                    <h3 class="text-xl font-semibold text-white">Watching Anime</h3>
-                    <p class="text-gray-400 text-sm">Exploring new stories.</p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center transform hover:scale-105 transition duration-300">
-                    <div class="text-4xl mb-2">📚</div>
-                    <h3 class="text-xl font-semibold text-white">Reading Manhwas</h3>
-                    <p class="text-gray-400 text-sm">Captivating webtoons.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Social Issues Section -->
-        <section id="social" class="py-20">
-            <h2 class="text-4xl font-bold text-center text-sky-400 mb-12">Real Life Problem </h2>
-            <div class="bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-sky-400">
-                <h3 class="text-2xl font-semibold text-white mb-2">The Decline of Outdoor Play</h3>
-                <p class="text-lg text-gray-300 leading-relaxed">
-                    I have observed with concern the shift in children's activities from outdoor play to digital screen time. In my own childhood, evenings were filled with friends gathering to play cricket and other games. Today, that scene is rarely seen, as children are often engrossed in social media, gaming, and online content. This trend affects physical health, social development, and creativity. I believe it's important to encourage activities that foster face-to-face interaction and a deeper connection with the physical world, which are crucial for a well-rounded upbringing.
+    
+    <section id="about" class="container">
+        <h2 class="heading">About Me</h2>
+        <div class="about-content">
+            <div class="card about-text">
+                <p>
+                    I am a dedicated student pursuing a B.Tech in Computer Science and Engineering at IIIT Sonepat. My academic journey is driven by a deep curiosity for how technology works and a desire to build solutions that can have a positive impact. I believe that every problem is a chance to learn and grow, and I find immense satisfaction in the process of breaking down challenges and building something new.
+                </p>
+                <p style="margin-top: 1rem;">
+                    I am actively working to strengthen my foundational knowledge and am always looking for opportunities to apply what I've learned. My goal is to transform my passion for problem-solving into a career where I can contribute to creating efficient and innovative solutions.
                 </p>
             </div>
-        </section>
+            <div style="text-align: center;">
+                <div class="profile-pic">👨‍🎓</div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-20">
-            <h2 class="text-4xl font-bold text-center text-sky-400 mb-12">Get In Touch</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <form class="p-8 bg-gray-800 rounded-xl shadow-lg">
-                    <div class="mb-6">
-                        <label for="name" class="block text-gray-300 mb-2">Name</label>
-                        <input type="text" id="name" name="name" class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-sky-400 focus:outline-none" placeholder="Your Name" required>
+    <section id="skills" class="container">
+        <h2 class="heading">Skills & Expertise</h2>
+        <div class="grid grid-4-cols">
+            <div class="card skills-card">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">💻</div>
+                <h3>Programming Languages</h3>
+                <p>C, C++, Java, JavaScript</p>
+            </div>
+            <div class="card skills-card">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌐</div>
+                <h3>Web Development Basics</h3>
+                <p>HTML, CSS, JavaScript</p>
+            </div>
+            <div class="card skills-card">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">🧠</div>
+                <h3>Foundational Concepts</h3>
+                <p>Object-Oriented Programming (OOP)</p>
+            </div>
+            <div class="card skills-card">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚙️</div>
+                <h3>Problem Solving</h3>
+                <p>A natural curiosity and love for learning how to solve problems.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="container">
+        <h2 class="heading">Achievements & Milestones</h2>
+        <div class="grid grid-3-cols">
+            <div class="card achievement-card">
+                <h3>10th Grade Academic Excellence</h3>
+                <p style="margin-top: 0.5rem;">Achieved a score of 97% in my 10th-grade examinations, demonstrating a strong foundation in all subjects.</p>
+            </div>
+            <div class="card achievement-card">
+                <h3>12th Grade Academic Excellence</h3>
+                <p style="margin-top: 0.5rem;">Achieved a score of 90.8% in my 12th-grade examinations, showcasing consistent academic excellence.</p>
+            </div>
+            <div class="card achievement-card">
+                <h3>Pursuing a B.Tech in CSE</h3>
+                <p style="margin-top: 0.5rem;">Currently in my second year of a Computer Science and Engineering degree at IIIT Sonepat, expanding my knowledge and skills in the field of technology.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="hobbies" class="container">
+        <h2 class="heading">Hobbies & Interests</h2>
+        <div class="grid grid-5-cols">
+            <div class="card hobby-card">
+                <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🏐</div>
+                <h3>Volleyball</h3>
+                <p>Teamwork and strategy.</p>
+            </div>
+            <div class="card hobby-card">
+                <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🏏</div>
+                <h3>Cricket</h3>
+                <p>Passion for the sport.</p>
+            </div>
+            <div class="card hobby-card">
+                <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🏃‍♂️</div>
+                <h3>Running</h3>
+                <p>Staying active and focused.</p>
+            </div>
+            <div class="card hobby-card">
+                <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎬</div>
+                <h3>Watching Anime</h3>
+                <p>Exploring new stories.</p>
+            </div>
+            <div class="card hobby-card">
+                <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📚</div>
+                <h3>Reading Manhwas</h3>
+                <p>Captivating webtoons.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="social" class="container">
+        <h2 class="heading">Social Impact</h2>
+        <div class="social-card">
+            <h3 class="problem-heading">The Problem</h3>
+            <p>
+                I have observed with concern the shift in children's activities from outdoor play to digital screen time. In my own childhood, evenings were filled with friends gathering to play cricket and other games. Today, that scene is rarely seen, as children are often engrossed in social media, gaming, and online content. This trend affects physical health, social development, and creativity. I believe it's important to encourage activities that foster face-to-face interaction and a deeper connection with the physical world, which are crucial for a well-rounded upbringing.
+            </p>
+            <h3 class="solution-heading" style="margin-top: 1.5rem;">The Solution</h3>
+            <p>
+                I believe the very tools that contribute to the problem can also be part of the solution. I'm interested in developing a mobile application or a web platform that encourages outdoor activities through gamification. This could include features like geo-located challenges to explore local parks and landmarks, team-based leaderboards to foster friendly competition, and digital badges and rewards for completing physical activities. By merging the appeal of technology with the benefits of outdoor play, we can create a hybrid experience that motivates kids to stay active and connected with their community, proving that technology can be used to enrich our lives in tangible ways.
+            </p>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2 class="heading">Get In Touch</h2>
+        <div class="contact-form-container">
+            <form class="card" action="#">
+                <div class="form-group">
+                    <label for="name" style="display: block; margin-bottom: 0.5rem;">Name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" style="display: block; margin-bottom: 0.5rem;">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message" style="display: block; margin-bottom: 0.5rem;">Message</label>
+                    <textarea id="message" name="message" rows="5" class="form-control" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">
+                    Send Message
+                </button>
+            </form>
+            <div>
+                <div class="contact-info-card">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-info">
+                        <h4>Email</h4>
+                        <a href="mailto:jatin4yadav776@gmail.com">jatin4yadav776@gmail.com</a>
                     </div>
-                    <div class="mb-6">
-                        <label for="email" class="block text-gray-300 mb-2">Email</label>
-                        <input type="email" id="email" name="email" class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-sky-400 focus:outline-none" placeholder="Your Email" required>
+                </div>
+                <div class="contact-info-card">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-info">
+                        <h4>Location</h4>
+                        <p>IIIT Sonepat, India</p>
                     </div>
-                    <div class="mb-6">
-                        <label for="message" class="block text-gray-300 mb-2">Message</label>
-                        <textarea id="message" name="message" rows="5" class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-sky-400 focus:outline-none" placeholder="Your Message" required></textarea>
+                </div>
+                <div class="contact-info-card">
+                    <div class="contact-icon">💼</div>
+                    <div class="contact-info">
+                        <h4>LinkedIn</h4>
+                        <a href="https://www.linkedin.com/in/jatin-yadav-46b980353?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">View Profile</a>
                     </div>
-                    <button type="submit" class="w-full py-3 px-6 bg-sky-600 text-white font-semibold rounded-lg hover:bg-sky-500 transform hover:scale-105 transition duration-300">
-                        Send Message
-                    </button>
-                </form>
-                <div class="flex flex-col space-y-6">
-                    <div class="p-6 bg-gray-800 rounded-xl shadow-lg flex items-center space-x-4">
-                        <div class="text-3xl text-sky-400">📧</div>
-                        <div>
-                            <h4 class="text-xl font-semibold text-white">Email</h4>
-                            <a href="mailto:jatin4yadav776@gmail.com" class="text-gray-400 hover:underline">jatin4yadav776@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="p-6 bg-gray-800 rounded-xl shadow-lg flex items-center space-x-4">
-                        <div class="text-3xl text-sky-400">📍</div>
-                        <div>
-                            <h4 class="text-xl font-semibold text-white">Location</h4>
-                            <p class="text-gray-400">IIIT Sonepat, India</p>
-                        </div>
-                    </div>
-                    <div class="p-6 bg-gray-800 rounded-xl shadow-lg flex items-center space-x-4">
-                        <div class="text-3xl text-sky-400">💼</div>
-                        <div>
-                            <h4 class="text-xl font-semibold text-white">LinkedIn</h4>
-                            <a href="https://www.linkedin.com/in/jatin-yadav-46b980353?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="text-gray-400 hover:underline">View Profile</a>
-                        </div>
-                    </div>
-                    <div class="p-6 bg-gray-800 rounded-xl shadow-lg flex items-center space-x-4">
-                        <div class="text-3xl text-sky-400">🐙</div>
-                        <div>
-                            <h4 class="text-xl font-semibold text-white">GitHub</h4>
-                            <a href="https://github.com/JATIN4YADAV" target="_blank" class="text-gray-400 hover:underline">View Profile</a>
-                        </div>
+                </div>
+                <div class="contact-info-card">
+                    <div class="contact-icon">🐙</div>
+                    <div class="contact-info">
+                        <h4>GitHub</h4>
+                        <a href="https://github.com/JATIN4YADAV" target="_blank">View Profile</a>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-950 py-8 text-center text-gray-500">
-        <div class="social-links mb-4 flex justify-center space-x-6 text-2xl">
-            <a href="https://github.com/JATIN4YADAV" target="_blank" class="hover:text-sky-400">🐙</a>
-            <a href="https://www.linkedin.com/in/jatin-yadav-46b980353?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="hover:text-sky-400">💼</a>
-            <!-- Optional: Add links to other social media -->
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://github.com/JATIN4YADAV" target="_blank">🐙</a>
+            <a href="https://www.linkedin.com/in/jatin-yadav-46b980353?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">💼</a>
         </div>
         <p>&copy; 2024 Jatin Yadav. All rights reserved. Built with ❤️ and lots of ☕</p>
     </footer>
